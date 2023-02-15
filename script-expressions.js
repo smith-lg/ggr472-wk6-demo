@@ -26,8 +26,8 @@ map.on('load', () => {
     //Add datasource from GeoJSON
     map.addSource('toronto-mus', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/smith-lg/ggr472-lab2/main/data/torontomusicvenues.geojson'
-        //'https://smith-lg.github.io/ggr472-lab2/data/torontomusicvenues.geojson'
+        data: 'https://raw.githubusercontent.com/smith-lg/ggr472-wk6-demo/main/data/torontomusicvenues.geojson'
+        //'https://smith-lg.github.io/ggr472-wk6-demo/data/torontomusicvenues.geojson'
     });
 
     map.addLayer({
@@ -37,7 +37,7 @@ map.on('load', () => {
         'paint': {
             'circle-radius': 5,
             'circle-color': 'blue'
-        },
+        }
     });
 
     //Draw GeoJSON labels using 'name' property
@@ -67,7 +67,7 @@ Conditional expressions: ==, >=, (etc.), any, all
 // //Filter data shown in layer
 // 'filter': ['>=', ['get', 'capacity'], 1000]  //Only shows points with capacity >= 1000
 // 'filter': ['==', ['get', 'name'], 'Horseshoe Tavern'] 
-// 'filter': ['has', '...']
+// 'filter': ['has', 'opentimes']
 // 'filter': ['!', ['has', '...']]
 
 // 'filter': ['any',    //ANY expression returns true if any inputs are met (OR)
@@ -77,6 +77,7 @@ Conditional expressions: ==, >=, (etc.), any, all
 // 'filter': ['all',    //ALL expression returns true if all inputs are met (AND)
 //     ['==', ['get', 'name'], 'Horseshoe Tavern'],
 //     ['==', ['get', 'name'], 'The Axis Club']] //returns features with name = "Horseshoe Tavern" or "The Axis Club"
+
 
 
 /*--------------------------------------------------------------------
@@ -97,6 +98,7 @@ Ramp/scale expression: step
 // ]
 
 
+
 /*--------------------------------------------------------------------
 EXAMPLE UPDATE OF MARKER SIZE BASED ON DATA VALUE AND ZOOM
 Data expressions: get
@@ -114,16 +116,16 @@ Maths expressions: /, *
 //     'interpolate', //INTERPOLATE expression produces continuous results by interplating between value pairs
 //     ['linear'], //linear interpolation between stops but could be exponential ['exponential', base] where base controls rate at which output increases
 //     ['zoom'], //ZOOM expression changes appearance with zoom level
-//     8, 1, // zoom is 8 (or less) -> circle radius will be 1px
-//     12, 10 // zoom is 12 (or greater) -> circle radius will be 10px
+//     8, 1, // when zoom level is 8 or less, circle radius will be 1px
+//     12, 10 // when zoom level is 12 or greater, circle radius will be 10px
 // ]
 
 // [
 //     'interpolate', //INTERPOLATE expression produces continuous results by interplating between value pairs
 //     ['linear'], //linear interpolation between stops but could be exponential ['exponential', base] where base controls rate at which output increases
 //     ['zoom'], //zoom expression changes appearance with zoom level
-//     10, 5, // zoom is 10 (or less), radius will be 5px
-//     12, ['/',['get', 'capacity'],20] // zoom is 12 (or greater), radius will be capacity/20
+//     10, 5, // when zoom is 10 (or less), radius will be 5px
+//     12, ['/',['get', 'capacity'],20] // when zoom is 12 (or greater), radius will be capacity/20
 // ]
 
 
