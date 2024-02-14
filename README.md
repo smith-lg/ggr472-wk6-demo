@@ -1,6 +1,6 @@
 # GGR472 Week 6 demo: Introducing expressions and events with Mapbox GL JS
 
-This repository contains JavaScript files and resources to help students learn about using the Mapbox GL JS library to filter data, update paint properties, and handle events on interactive maps.
+This repository contains JavaScript files and resources to help you learn about using the Mapbox GL JS library to filter data, update paint properties, and handle events on interactive maps.
 
 ## Repository Contents
 
