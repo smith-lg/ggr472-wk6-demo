@@ -5,7 +5,7 @@ MapData and MapMouse Events
 
 
 //Define access token
-mapboxgl.accessToken = 'pk.eyJ1IjoibGdzbWl0aCIsImEiOiJja29uNGs1cmYwYnN2MnBwMzM2cDQyN2NrIn0.lZvjUUK8Pc2JDq0tuSRrKQ'; //****ADD YOUR PUBLIC ACCESS TOKEN*****
+mapboxgl.accessToken = ''; //****ADD YOUR PUBLIC ACCESS TOKEN*****
 
 //Initialize map
 const map = new mapboxgl.Map({
@@ -41,8 +41,6 @@ map.on('load', () => {
         'url': 'mapbox://lgsmith.843obi8n'
     });
 
-
-
     map.addLayer({
         'id': 'provterr-fill',
         'type': 'fill',
@@ -76,15 +74,15 @@ map.on('load', () => {
 /*--------------------------------------------------------------------
 SIMPLE CLICK EVENT
 --------------------------------------------------------------------*/
-// map.on('click', 'provterr-fill', (e) => {
+map.on('click', 'provterr-fill', (e) => {
 
-//     console.log(e);   //e is the event info triggered and is passed to the function as a parameter (e)
-//                         //Explore console output using Google DevTools
+    console.log(e);   //e is the event info triggered and is passed to the function as a parameter (e)
+                        //Explore console output using Google DevTools
 
-//     // let provname = e.features[0].properties.PRENAME;
-//     // console.log(provname);
+    // let provname = e.features[0].properties.PRENAME;
+    // console.log(provname);
 
-// })
+});
 
 
 /*--------------------------------------------------------------------
@@ -94,15 +92,9 @@ map.on('mouseenter', 'provterr-fill', () => {
     map.getCanvas().style.cursor = 'pointer'; //Switch cursor to pointer when mouse is over provterr-fill layer
 });
 
-map.on('mouseleave', 'provterr-hl', () => {
+map.on('mouseleave', 'provterr-fill', () => {
     map.getCanvas().style.cursor = ''; //Switch cursor back when mouse leaves provterr-fill layer
-    map.setFilter("provterr-hl",['==', ['get', 'PRUID'], '']);
 });
-
-// map.on('mouseleave', 'provterr-hl', () => {
-//    map.setFilter("provterr-hl",['==', ['get', 'PRUID'], '']);
-// });
-
 
 map.on('click', 'provterr-fill', (e) => {
     new mapboxgl.Popup() //Declare new popup object on each click
@@ -110,15 +102,11 @@ map.on('click', 'provterr-fill', (e) => {
         .setHTML("<b>Province/Territory:</b> " + e.features[0].properties.PRENAME + "<br>" +
             "Population: " + e.features[0].properties.POP2021) //Use click event properties to write text for popup
         .addTo(map); //Show popup on map
-})
-
-
-
-
+});
 
 
 /*--------------------------------------------------------------------
-SIMPLE HOVER EVENT
+SIMPLE HOVER EVENT USING setFilter() METHOD
 // --------------------------------------------------------------------*/
  map.on('mousemove', 'provterr-fill', (e) => {
     if (e.features.length > 0) { //if there are features in the event features array (i.e features under the mouse hover) then go into the conditional

@@ -7,7 +7,7 @@ Using expressions to:
 
 
 //Define access token
-mapboxgl.accessToken = 'pk.eyJ1IjoibGdzbWl0aCIsImEiOiJja29uNGs1cmYwYnN2MnBwMzM2cDQyN2NrIn0.lZvjUUK8Pc2JDq0tuSRrKQ'; //****ADD YOUR PUBLIC ACCESS TOKEN*****
+mapboxgl.accessToken = ''; //****ADD YOUR PUBLIC ACCESS TOKEN*****
 
 //Initialize map
 const map = new mapboxgl.Map({
@@ -36,7 +36,7 @@ map.on('load', () => {
         'source': 'toronto-mus',
         'paint': {
             'circle-radius': 5,
-            'circle-color': 'blue'
+            'circle-color': 'blue',
         }
     });
 
@@ -113,7 +113,7 @@ Maths expressions: /, *
 //Change marker size on zoom
 //Uses interpolate operator to define linear relationship between zoom level and circle size
 // [
-//     'interpolate', //INTERPOLATE expression produces continuous results by interplating between value pairs
+//     'interpolate', //INTERPOLATE expression produces continuous results by interpolating between value pairs
 //     ['linear'], //linear interpolation between stops but could be exponential ['exponential', base] where base controls rate at which output increases
 //     ['zoom'], //ZOOM expression changes appearance with zoom level
 //     8, 1, // when zoom level is 8 or less, circle radius will be 1px
@@ -121,7 +121,7 @@ Maths expressions: /, *
 // ]
 
 // [
-//     'interpolate', //INTERPOLATE expression produces continuous results by interplating between value pairs
+//     'interpolate', //INTERPOLATE expression produces continuous results by interpolating between value pairs
 //     ['linear'], //linear interpolation between stops but could be exponential ['exponential', base] where base controls rate at which output increases
 //     ['zoom'], //zoom expression changes appearance with zoom level
 //     10, 5, // when zoom is 10 (or less), radius will be 5px

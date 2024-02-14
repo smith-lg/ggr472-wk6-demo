@@ -77,7 +77,8 @@ map.on('click', 'provterr-fill', (e) => {
     let provname = e.features[0].properties.PRENAME;
     console.log(provname);
 
-})
+});
+
 
 
 /*--------------------------------------------------------------------
@@ -89,7 +90,6 @@ map.on('mouseenter', 'provterr-fill', () => {
 
 map.on('mouseleave', 'provterr-fill', () => {
     map.getCanvas().style.cursor = ''; //Switch cursor back when mouse leaves provterr-fill layer
-    //map.setFilter("provterr-hl",['==', ['get', 'PRUID'], '']);
 });
 
 
@@ -99,15 +99,14 @@ map.on('click', 'provterr-fill', (e) => {
         .setHTML("<b>Province/Territory:</b> " + e.features[0].properties.PRENAME + "<br>" +
             "Population: " + e.features[0].properties.POP2021) //Use click event properties to write text for popup
         .addTo(map); //Show popup on map
-})
-
+});
 
 
 
 /*--------------------------------------------------------------------
-HOVER EVENT
+HOVER EVENT USING setFeatureState() METHOD
 // --------------------------------------------------------------------*/
-let provID = null; //Declsre initial province ID as null
+let provID = null; //Declare initial province ID as null
 
 map.on('mousemove', 'provterr-fill', (e) => {
     if (e.features.length > 0) { //If there are features in array enter conditional
