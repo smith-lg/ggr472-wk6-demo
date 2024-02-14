@@ -29,8 +29,8 @@ This code is provided to help with learning the following concepts:
 
 To get started:
 
-1. Clone this repository to your local machine.
-2. Open `index.html` in a web browser to view the map.
-3. Set the JavaScript source to the required `.js` file and update the public access token
+1. Clone this repository to your local machine (Clone > Download zipped folder)
+2. Set the JavaScript source to the required `.js` file and update the public access token
+3. Open `index.html` in a web browser to view the map
 4. Experiment with the code to further your understanding
  
