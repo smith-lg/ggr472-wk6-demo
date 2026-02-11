@@ -101,22 +101,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "The Velvet Underground",
-        "marker-color": "#1b2ebb",
-        "marker-size": "medium",
-        "capacity": 350
-      },
-      "geometry": {
-        "coordinates": [
-          -79.4014818343507,
-          43.64793231161366
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "The Axis Club",
         "marker-color": "#1b2ebb",
         "marker-size": "medium",
@@ -129,24 +113,6 @@
         ],
         "type": "Point"
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "The Dakota Tavern",
-        "marker-color": "#1b2ebb",
-        "marker-size": "medium",
-        "capacity": 130,
-        "opentimes": ""
-      },
-      "geometry": {
-        "coordinates": [
-          -79.42065445767182,
-          43.649751592268586
-        ],
-        "type": "Point"
-      },
-      "id": 8
     }
   ]
 }

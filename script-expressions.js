@@ -7,7 +7,7 @@ Using expressions to:
 
 
 // Define access token
-mapboxgl.accessToken = 'pk.eyJ1IjoibGdzbWl0aCIsImEiOiJja29uNGs1cmYwYnN2MnBwMzM2cDQyN2NrIn0.lZvjUUK8Pc2JDq0tuSRrKQ'; //***ADD YOUR PUBLIC ACCESS TOKEN***
+mapboxgl.accessToken = '...'; //***ADD YOUR PUBLIC ACCESS TOKEN***
 
 // Initialize map
 const map = new mapboxgl.Map({
@@ -30,45 +30,32 @@ map.on('load', () => {
         //'https://smith-lg.github.io/ggr472-wk6-demo/data/torontomusicvenues.geojson'
     });
 
+    // Draw GeoJSON points
     map.addLayer({
         'id': 'toronto-mus-pnts',
         'type': 'circle',
         'source': 'toronto-mus',
         'paint': {
-            'circle-radius': [
-                'interpolate', //INTERPOLATE expression produces continuous results by interplating between value pairs
-                ['linear'], //linear interpolation between stops but could be exponential ['exponential', base] where base controls rate at which output increases
-                ['zoom'], //zoom expression changes appearance with zoom level
-                10, 5, // when zoom is 10 (or less), radius will be 5px
-                12, ['/',['get', 'capacity'],20] // when zoom is 12 (or greater), radius will be capacity/20
-            ],
-            'circle-color': [
-                'step', // STEP expression produces stepped results based on value pairs
-                ['get', 'capacity'], // GET expression retrieves property value from 'capacity' data field
-                '#800026', // Colour assigned to any values < first step
-                150, '#bd0026', // Colours assigned to values >= each step
-                500, '#e31a1c',
-                1000, '#fc4e2a',
-                2500, '#fd8d3c'
-            ]
-        } 
+            'circle-radius': 5,
+            'circle-color': 'blue'
+        }
     });
 
     // Draw GeoJSON labels using 'name' property
-    // map.addLayer({
-    //     'id': 'toronto-mus-labels',
-    //     'type': 'symbol',
-    //     'source': 'toronto-mus',
-    //     'layout': {
-    //         'text-field': ['get', 'name'],
-    //         'text-variable-anchor': ['bottom'],
-    //         'text-radial-offset': 0.5,
-    //         'text-justify': 'auto'
-    //     },
-    //     'paint': {
-    //         'text-color': 'blue'
-    //     }
-    // });
+    map.addLayer({
+        'id': 'toronto-mus-labels',
+        'type': 'symbol',
+        'source': 'toronto-mus',
+        'layout': {
+            'text-field': ['get', 'name'],
+            'text-variable-anchor': ['bottom'],
+            'text-radial-offset': 0.5,
+            'text-justify': 'auto'
+        },
+        'paint': {
+            'text-color': 'blue'
+        }
+    });
 
 });
 
