@@ -31,5 +31,5 @@ To get started:
  
 1. Download this repository on to your local machine.
 2. Set the JavaScript source to the required `.js` file and update to your own mapbox public access token
-2. Open `index.html` in a web browser to view the map
+3. Open `index.html` in a web browser to view the map
 4. Experiment with the code to further your understanding
